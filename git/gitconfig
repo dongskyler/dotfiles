@@ -1,3 +1,5 @@
+[user]
+  signingkey = 04534943D774441D
 [diff]
 	tool = nvimdiff
 [difftool "nvimdiff"]
