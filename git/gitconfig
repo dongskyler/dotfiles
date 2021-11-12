@@ -3,13 +3,14 @@
 [diff]
 	tool = nvimdiff
 [difftool "nvimdiff"]
-	prompt = true
+	prompt = false
 	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [merge]
-	conflictstyle = diff3
 	tool = nvimdiff
+	conflictstyle = diff3
 [mergetool "nvim"]
   prompt = false
   cmd = "nvim -f -c \"Gdiffsplit!\" \"$MERGED\""
 [alias]
-	d = difftool
+	dt = difftool
+	mt = mergetool
