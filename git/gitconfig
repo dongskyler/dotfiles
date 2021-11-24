@@ -1,7 +1,6 @@
 [user]
-	email = skylerdong@protonmail.com
-	name = Skyler Dong
-  signingkey = 04534943D774441D
+	email = dongtiannong@bytedance.com
+	name = Tiannong Dong
 [diff]
 	tool = nvimdiff
 [difftool "nvimdiff"]
