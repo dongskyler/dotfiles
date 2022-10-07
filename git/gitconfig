@@ -2,15 +2,15 @@
 	email = dongtiannong@bytedance.com
 	name = Tiannong Dong
 [diff]
-	tool = nvimdiff
-[difftool "nvimdiff"]
-	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+	tool = vimdiff
+[difftool "vimdiff"]
+	cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
 	prompt = false
 [merge]
-	tool = nvimdiff
+	tool = vimdiff
 	conflictstyle = diff3
-[mergetool "nvim"]
-  cmd = "nvim -f -c \"Gdiffsplit!\" \"$MERGED\""
+[mergetool "vim"]
+  cmd = "vim -f -c \"Gdiffsplit!\" \"$MERGED\""
   prompt = false
 [alias]
 	dt = difftool
