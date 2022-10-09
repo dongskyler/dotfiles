@@ -1,4 +1,4 @@
-[user]
+; [user]
 [diff]
 	tool = vimdiff
 [difftool "vimdiff"]
