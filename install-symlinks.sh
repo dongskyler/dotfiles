@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-DOTFILE_DIR="$HOME/dotfiles"
+DOTFILE_DIR="$HOME/.dotfiles"
 
 # -- Zsh --
 TARGET_ZSH_DIR="$HOME/.zsh"
