@@ -252,21 +252,21 @@ Plug 'mbbill/undotree'
 call plug#end()
 
 " Coc extensions
-" let g:coc_global_extensions = [
-      " \ 'coc-css',
-      " \ 'coc-eslint',
-      " \ 'coc-explorer',
-      " \ 'coc-highlight',
-      " \ 'coc-html',
-      " \ 'coc-html-css-support',
-      " \ 'coc-json',
-      " \ 'coc-pairs',
-      " \ 'coc-prettier',
-      " \ 'coc-react-refactor',
-      " \ 'coc-sh',
-      " \ 'coc-styled-components',
-      " \ 'coc-tsserver',
-      " \ ]
+let g:coc_global_extensions = [
+      \ 'coc-css',
+      \ 'coc-eslint',
+      \ 'coc-explorer',
+      \ 'coc-highlight',
+      \ 'coc-html',
+      \ 'coc-html-css-support',
+      \ 'coc-json',
+      \ 'coc-pairs',
+      \ 'coc-prettier',
+      \ 'coc-react-refactor',
+      \ 'coc-sh',
+      \ 'coc-styled-components',
+      \ 'coc-tsserver',
+      \ ]
 
 " -- Coc-explorer --
 " noremap <space>e <Cmd>CocCommand explorer<CR>
@@ -392,9 +392,17 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 " fzf
-nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>g :Rg<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
+nnoremap <silent> <leader>fc :Commits<CR>
+nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>fh :History<CR>
+nnoremap <silent> <leader>fj :Jumps<CR>
+nnoremap <silent> <leader>fl :Lines<CR>
+nnoremap <silent> <leader>fm :Marks<CR>
+nnoremap <silent> <leader>ft :Tags<CR>
+nnoremap <silent> <leader>fr :Rg<CR>
+nnoremap <silent> <leader>fs :Snippets<CR>
+nnoremap <silent> <leader>fw :Windows<CR>
 
 " Use CTRL-S for selections ranges
 " Requires 'textDocument/selectionRange' support of language server

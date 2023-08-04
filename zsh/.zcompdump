@@ -1,4 +1,4 @@
-#files: 967	version: 5.9
+#files: 972	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -199,6 +199,7 @@ _comps=(
 'bpython3-gtk' '_bpython'
 'bpython3-urwid' '_bpython'
 'brctl' '_brctl'
+'brew' '_brew'
 'bsdconfig' '_bsdconfig'
 'bsdgrep' '_grep'
 'bsdinstall' '_bsdinstall'
@@ -389,6 +390,8 @@ _comps=(
 'dnf-2' '_dnf'
 'dnf-3' '_dnf'
 'doas' '_doas'
+'docker' '_docker'
+'dockerd' '_docker'
 'domainname' '_yp'
 'dos2unix' '_dos2unix'
 'dosdel' '_floppy'
@@ -583,11 +586,6 @@ _comps=(
 'ginstall' '_install'
 'git' '_git'
 'git-buildpackage' '_git-buildpackage'
-'git-cvsserver' '_git'
-'git-receive-pack' '_git'
-'git-shell' '_git'
-'git-upload-archive' '_git'
-'git-upload-pack' '_git'
 'gitk' '_git'
 'gjoin' '_join'
 'glance' '_openstack'
@@ -783,6 +781,7 @@ _comps=(
 'isag' '_sysstat'
 'ispell' '_ispell'
 'iwconfig' '_iwconfig'
+'j' '_j'
 'jadetex' '_tex'
 'jail' '_jail'
 'jar' '_java'
@@ -1245,6 +1244,7 @@ _comps=(
 'reprepro' '_reprepro'
 'restart' '_initctl'
 'retawq' '_webbrowser'
+'rg' '_rg'
 'rgrep' '_grep'
 'rgview' '_vim'
 'rgvim' '_vim'
@@ -1452,7 +1452,6 @@ _comps=(
 'texindex' '_texinfo'
 'tg' '_topgit'
 'tidy' '_tidy'
-'tig' '_git'
 'time' '_precommand'
 'timeout' '_timeout'
 'times' '_nothing'
@@ -1839,7 +1838,8 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _yarn _SUSEconfig __arguments _a2ps _a2utils \
+autoload -Uz _yarn _brew _docker _git _j \
+            _rg _SUSEconfig __arguments _a2ps _a2utils \
             _aap _abcde _absolute_command_paths _ack _acpi \
             _acpitool _acroread _adb _add-zle-hook-widget _add-zsh-hook \
             _alias _aliases _all_labels _all_matches _alsa-utils \
@@ -2038,5 +2038,5 @@ autoload -Uz +X _call_program
 typeset -gUa _comp_assocs
 _comp_assocs=( '' )
 
-#omz revision: 
-#omz fpath: /Users/skyler/.zsh/custom/plugins/zsh-autosuggestions /Users/skyler/.zsh/presets/oh-my-zsh/plugins/autojump /Users/skyler/.zsh/custom/plugins/zsh-syntax-highlighting /Users/skyler/.zsh/presets/oh-my-zsh/plugins/yarn /Users/skyler/.zsh/presets/oh-my-zsh/plugins/git /Users/skyler/.zsh/presets/oh-my-zsh/functions /Users/skyler/.zsh/presets/oh-my-zsh/completions /Users/skyler/.zsh/presets/oh-my-zsh/cache/completions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.9/functions
+#omz revision: dfccb2a70a32c91afd5d42f647d632875d942be4
+#omz fpath: /Users/bytedance/.zsh/custom/plugins/zsh-autosuggestions /Users/bytedance/.zsh/presets/oh-my-zsh/plugins/autojump /Users/bytedance/.zsh/custom/plugins/zsh-syntax-highlighting /Users/bytedance/.zsh/presets/oh-my-zsh/plugins/yarn /Users/bytedance/.zsh/presets/oh-my-zsh/plugins/git /Users/bytedance/.zsh/presets/oh-my-zsh/functions /Users/bytedance/.zsh/presets/oh-my-zsh/completions /Users/bytedance/.cache/oh-my-zsh/completions /usr/local/share/zsh/site-functions /usr/share/zsh/site-functions /usr/share/zsh/5.9/functions
