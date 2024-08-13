@@ -160,9 +160,9 @@ if s:t_Co >= 256
   hi VisualNOS ctermfg=NONE ctermbg=NONE cterm=underline
   hi VertSplit ctermfg=238 ctermbg=238 cterm=NONE
   hi WildMenu ctermfg=235 ctermbg=110 cterm=NONE
-  hi DiffAdd ctermfg=114 ctermbg=235 cterm=reverse
+  hi DiffAdd ctermfg=151 ctermbg=235 cterm=reverse
   hi DiffDelete ctermfg=217 ctermbg=235 cterm=reverse
-  hi DiffChange ctermfg=222 ctermbg=235 cterm=reverse
+  hi DiffChange ctermfg=187 ctermbg=235 cterm=reverse
   hi DiffText ctermfg=221 ctermbg=235 cterm=reverse
   hi IncSearch ctermfg=235 ctermbg=131 cterm=NONE
   hi Search ctermfg=235 ctermbg=229 cterm=NONE

@@ -55,15 +55,17 @@ fi
 
 export MATLAB_DIR="$HOME/.matlab"
 
-export GO_DIR="${HOME}/.go"
-export GO_ROOT_DIR="$(brew --prefix golang)/libexec"
-
 export PATH="$PATH:${GO_DIR}/bin:${GO_ROOT_DIR}/bin"
 test -d "${GO_DIR}" || mkdir "${GO_DIR}"
 test -d "${GO_DIR}/src/github.com" || mkdir -p "${GO_DIR}/src/github.com"
+export GO_DIR="${HOME}/.go"
+# export GO_ROOT_DIR="$(brew --prefix golang)/libexec"
 
-# eval $(/opt/homebrew/bin/brew shellenv)
-eval $(brew shellenv)
+HOMREBREW_BIN_FILE="/opt/homebrew/bin/brew"
+if [[ -f "HOMREBREW_BIN_FILE" ]]; then
+  eval $("$HOMREBREW_BIN_FILE" shellenv)
+fi
+# eval $(brew shellenv)
 
 # ----------------------------------------------------------------------
 # Load local configuration file, if present, to override default settings

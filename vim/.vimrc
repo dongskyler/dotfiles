@@ -12,7 +12,7 @@ syntax on
 set nocursorline
 set nocursorcolumn
 syntax sync minlines=200
-syntax sync maxlines=500
+syntax sync maxlines=750
 
 set encoding=utf-8 nobomb
 set spelllang=en_us
@@ -25,15 +25,16 @@ set undofile
 set undodir=$HOME/.vim/tmp/undo
 
 " History and undo
-set history=1000
-set undolevels=1000
+set history=300
+set undolevels=300
 
 " Buffer
 set ttyfast
 set updatetime=100
 set lazyredraw
-set redrawtime=1000
+set redrawtime=750
 set hidden
+set synmaxcol=300
 
 " Note that not everyone likes working this way (with the hidden option).
 " Alternatives include using tabs or split windows instead of re-using the same
@@ -67,10 +68,16 @@ set smartcase
 " Mouse
 set mouse=a
 
+" Disable unused built-in plugins
+let g:loaded_rrhelper = 1
+let g:loaded_tarPlugin = 1
+let g:loaded_gzip = 1
+let g:loaded_zipPlugin = 1
+
 "------------------------------------------------------------
 " Mappings
 
-let mapleader=";"
+let mapleader="\\"
 " let maplocalleader="'"
 
 set backspace=indent,eol,start
@@ -81,9 +88,7 @@ set nostartofline
 " end
 
 set timeout
-set timeoutlen=3000
-set ttimeout
-set ttimeoutlen=30
+set timeoutlen=750 ttimeoutlen=10
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
@@ -91,6 +96,8 @@ nnoremap <C-L> :nohl<CR><C-L>
 
 " Undo tree
 nnoremap <leader>u :UndotreeToggle<CR>
+
+nmap <leader>ln :!pnpm eslint --fix %<enter>
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
@@ -108,7 +115,9 @@ if (empty($TMUX))
   endif
 endif
 
-set guicursor=a:ver20-blinkon0
+" set guicursor=a:ver20-blinkon0
+" set guicursor=block
+set guicursor=n-v-c:block-nCursor/lCursor,ve:ver35-Curs
 
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
@@ -128,14 +137,15 @@ let g:gruvbox_sign_column='bg1'
 let g:gruvbox_color_column='bg2'
 let g:gruvbox_invert_tabline='0'
 
+set bg=dark
+
 " -- vimdiff color scheme --
 if &diff
   colorscheme apprentice
 else
-  autocmd vimenter * colorscheme gruvbox
+  " autocmd vimenter * colorscheme gruvbox
+  autocmd vimenter * colorscheme apprentice
 endif
-
-set bg=dark
 
 set ruler
 set cursorline
@@ -143,7 +153,7 @@ set cursorline
 set laststatus=2
 set number
 set numberwidth=4
-" set relativenumber
+set relativenumber
 
 " Show all changes
 set report=0
@@ -183,7 +193,7 @@ set wrap
 set textwidth=80
 " set formatoptions=qrn1
 " set formatoptions-=o
-set pastetoggle=<leader>p
+" set pastetoggle=<leader>p
 
 " Modelines have historically been a source of security vulnerabilities. As
 " such, it may be a good idea to disable them and use the securemodelines
@@ -214,7 +224,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'tpope/vim-surround'
 
 " Git
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive', { 'on': 'G' }
 Plug 'airblade/vim-gitgutter'
 
 " Comment
@@ -246,8 +256,14 @@ Plug 'brooth/far.vim'
 " Coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Codeverse
+" Plug 'git@code.byted.org:chenjiaqi.cposture/codeverse.vim.git'
+
 " Undo tree
 Plug 'mbbill/undotree'
+
+" vim-caser
+Plug 'arthurxavierx/vim-caser'
 
 call plug#end()
 
@@ -327,8 +343,9 @@ nmap <leader>do <Plug>(coc-codeaction)
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>fm  <Plug>(coc-format-selected)
+nmap <leader>fm  <Plug>(coc-format-selected)
+nmap <leader>ff :CocCommand prettier.formatFile<CR>
 
 augroup mygroup
   autocmd!
@@ -392,17 +409,17 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 " fzf
-nnoremap <silent> <leader>fb :Buffers<CR>
-nnoremap <silent> <leader>fc :Commits<CR>
-nnoremap <silent> <leader>ff :Files<CR>
-nnoremap <silent> <leader>fh :History<CR>
-nnoremap <silent> <leader>fj :Jumps<CR>
-nnoremap <silent> <leader>fl :Lines<CR>
-nnoremap <silent> <leader>fm :Marks<CR>
-nnoremap <silent> <leader>ft :Tags<CR>
-nnoremap <silent> <leader>fr :Rg<CR>
-nnoremap <silent> <leader>fs :Snippets<CR>
-nnoremap <silent> <leader>fw :Windows<CR>
+nnoremap <silent> <leader>sb :Buffers<CR>
+nnoremap <silent> <leader>sc :Commits<CR>
+nnoremap <silent> <leader>sf :Files<CR>
+nnoremap <silent> <leader>sh :History<CR>
+nnoremap <silent> <leader>sj :Jumps<CR>
+nnoremap <silent> <leader>sl :Lines<CR>
+nnoremap <silent> <leader>sm :Marks<CR>
+nnoremap <silent> <leader>st :Tags<CR>
+nnoremap <silent> <leader>sg :Rg<CR>
+nnoremap <silent> <leader>ss :Snippets<CR>
+nnoremap <silent> <leader>sw :Windows<CR>
 
 " Use CTRL-S for selections ranges
 " Requires 'textDocument/selectionRange' support of language server
@@ -515,13 +532,15 @@ let g:NERDCustomDelimiters = {
       \ }
 
 " -- Syntastic : Linting / Error check --
+let g:statline_syntastic = 0
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" disable syntastic on the statusline
 
 " close/open location list (errors)
 noremap <silent><leader>lc :lcl<CR>
